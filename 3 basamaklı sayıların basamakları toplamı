@@ -7,13 +7,13 @@ fun main()
 
     println("Sayının basamakları toplamı = ${sum3Digits(a)}")
 }
-fun sum3Digits(value: Int)
+fun sum3Digits(n: Int): Int
 {
+    var value = Math.abs(n)
+    
     var x = value % 10
     var y = value / 10 % 10
     var z = value / 100
 
-    var sum = x + y + z
-
-    println("sum = $sum")
+    return x + y + z
 }
