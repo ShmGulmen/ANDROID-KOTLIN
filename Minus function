@@ -1,0 +1,13 @@
+package shm
+
+fun main()
+{
+    var a: Long = 20_000_000_000
+    var b: Int = 20
+
+    var result = a / b
+    println(result)
+
+    result = a.minus(b)
+    println(result)
+}
