@@ -1,0 +1,11 @@
+package shm
+
+fun main()
+{
+    println("Bir sayı giriniz")
+    var a = readLine()!!.toInt()
+
+    var b = a.unaryPlus()
+
+    println("b = $b")
+}
