@@ -1,0 +1,13 @@
+package shm
+
+fun main()
+{
+    var a: Int = 10
+    var b: Int = 20
+
+    var sum = a + b
+    println(sum)
+
+    sum = a.plus(b)
+    println(sum)
+}
