@@ -1,0 +1,13 @@
+package shm
+
+fun main() {
+    println("Bir sayı giriniz")
+    var a = readLine()!!.toInt()
+
+    println("Bir sayı giriniz")
+    var b = readLine()!!.toDouble()
+
+    var result = a.rem(b)
+
+    println("result = $result")
+}
