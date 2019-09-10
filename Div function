@@ -1,0 +1,13 @@
+package shm
+
+fun main()
+{
+    var a: Long = 17_000_000
+    var b: Double = 20.5
+
+    var result = a / b
+    println(result)
+
+    result = a.div(b)
+    println(result)
+}
