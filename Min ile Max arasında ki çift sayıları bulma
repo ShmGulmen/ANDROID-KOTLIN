@@ -1,0 +1,14 @@
+package shm
+
+fun main()
+{
+     show(12,56)
+}
+fun show(min: Int, max:Int)
+{
+    for(a in min..max) {
+        fun isEven(a: Int) = a % 2 == 0
+            if (isEven(a))
+            println(a)
+    }
+}
