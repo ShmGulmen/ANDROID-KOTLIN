@@ -1,0 +1,9 @@
+package shm
+
+fun main()
+{
+   println(isTriangle(7.0, 8.0, 15.0))
+}
+fun isTriangle(a: Double, b:Double, c:Double) 
+    = a + b > c && a + c > b && b + c > a &&
+ Math.abs(a - b) < c && Math.abs(a - c) < b && Math.abs(b - c) < a
