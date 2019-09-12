@@ -1,0 +1,36 @@
+package shm
+
+fun main()
+{
+    println("a?")
+    var a = readLine()!!.toDouble()
+
+    println("b?")
+    var b = readLine()!!.toDouble()
+
+    println("c?")
+    var c = readLine()!!.toDouble()
+
+    findRoots(a,b,c)
+}
+fun findRoots(a:Double, b:Double, c:Double)
+{
+    var delta = b * b - 4 * a * c
+    var x1:Double
+    var x2:Double
+
+    if(delta > 0)
+    {
+        x1 = -b + Math.sqrt(delta) / 2 * a
+        x2 = -b - Math.sqrt(delta) / 2 * a
+
+        println("x1=$x1, x2=$x2")
+    }
+    else if(delta == .0)
+    {
+        var x = -b / (2 * a)
+        println("x1=x2=$x")
+    }
+    else println("No roots")
+
+}
