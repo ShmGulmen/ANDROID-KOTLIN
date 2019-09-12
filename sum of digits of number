@@ -1,0 +1,20 @@
+package shm
+
+fun main() {
+    println("Enter a number")
+    var n = readLine()!!.toInt()
+
+    println("Sum = ${getDigitSum(n)}")
+}
+fun getDigitSum(n: Int) : Int
+{
+    var sum = 0
+    var number = n
+
+    while (number != 0) {
+        sum += number % 10
+        number /= 10
+    }
+
+    return Math.abs(sum)
+}
