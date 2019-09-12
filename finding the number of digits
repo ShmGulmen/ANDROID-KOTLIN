@@ -1,0 +1,20 @@
+package shm
+
+fun main() {
+    println("Enter a number")
+    var n = readLine()!!.toInt()
+
+    println("count = ${getDigitsCount(n)}")
+}
+fun getDigitsCount(n: Int) : Int
+{
+    var number = n
+    var count = 0
+
+    do {
+        ++count
+        number /= 10
+    }while (number != 0)
+
+    return count
+}
