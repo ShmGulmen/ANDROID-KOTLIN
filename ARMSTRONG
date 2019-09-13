@@ -1,0 +1,51 @@
+package shm
+
+fun main()
+{
+    for (n in 0..999999) {
+        if(isArmstrong(n))
+        println(n)
+    }
+}
+fun isArmstrong(n: Int):Boolean
+{
+    if(n < 0)
+        return false
+
+    var sum = 0
+    var value = n
+    var x = getDigitsCount(n)
+
+    while (value != 0){
+        sum += pow(value % 10,x)
+        value /= 10
+    }
+    return sum == n
+}
+
+fun pow(a: Int, b: Int):Int
+{
+    if(b < 0)
+        return Math.abs(b)
+
+    var value = 1
+
+    for(i in 1..b)
+        value *= a
+
+    return value
+}
+fun getDigitsCount(n: Int): Int
+{
+    if(n == 0)
+        return 1
+
+    var value = n
+    var count = 0
+
+    while (value != 0){
+        value /= 10
+        ++count
+    }
+    return count
+}
