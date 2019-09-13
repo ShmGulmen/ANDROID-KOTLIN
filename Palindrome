@@ -1,0 +1,21 @@
+package shm
+
+fun main()
+{
+    println("Enter a number")
+    var n = readLine()!!.toInt()
+
+    println(isPalindrome(n))
+}
+fun reverse(n: Int): Int
+{
+    var value = n
+    var rev = 0
+
+    while (value != 0){
+        rev = value % 10 + rev * 10
+        value /= 10
+    }
+    return rev
+}
+fun isPalindrome(n: Int) = reverse(n) == n
