@@ -1,0 +1,24 @@
+package shm
+
+fun main()
+{
+    println("a?")
+    var a = readLine()!!.toInt()
+
+    println("b?")
+    var b = readLine()!!.toInt()
+
+    println("result = ${pow(a,b)}")
+}
+fun pow(a: Int, b: Int):Int
+{
+    if(b < 0)
+        return Math.abs(b)
+
+    var value = 1
+
+    for(i in 1..b)
+        value *= a
+
+    return value
+}
