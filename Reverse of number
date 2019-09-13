@@ -1,0 +1,20 @@
+package shm
+
+fun main()
+{
+    println("n?")
+    var n = readLine()!!.toInt()
+
+    println("reverse of number = ${reverse(n)}")
+}
+fun reverse(n: Int): Int
+{
+    var value = n
+    var rev = 0
+
+    while (value != 0){
+        rev = value % 10 + rev * 10
+        value /= 10
+    }
+    return rev
+}
