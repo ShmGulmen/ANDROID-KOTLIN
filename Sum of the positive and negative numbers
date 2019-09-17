@@ -1,0 +1,39 @@
+package shm
+
+fun main()
+{
+    var posSum = 0
+    var posCount = 0
+    var negSum = 0
+    var negCount = 0
+
+    println("enter the numbers")
+
+    while (true)
+    {
+        var value = readLine()!!.toInt()
+
+        if (value == 0)
+            break
+
+        if (value > 0) {
+            posSum += value
+            ++posCount
+        }
+        else{
+            negSum += value
+            ++negCount
+        }
+    }
+
+    if (posCount > 0)
+        println("Enter the a $posCount positive number. Sum of the numbers: $posSum")
+    else
+        println("no positive numbers entered")
+
+    if (negCount > 0)
+        println("Enter the a $negCount positive number. Sum of the numbers: $negSum")
+    else
+        println("no negative number entered")
+}
+
