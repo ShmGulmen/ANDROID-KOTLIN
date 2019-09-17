@@ -1,0 +1,14 @@
+package shm
+
+fun main()
+{
+    println("Enter a number")
+    var n = readLine()!!.toInt()
+
+    println(signum(n))
+}
+fun signum(a:Int) = when {
+    a > 0 -> 1
+    a == 0 -> 0
+    else -> -1
+}
