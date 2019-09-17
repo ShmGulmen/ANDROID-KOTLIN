@@ -1,0 +1,81 @@
+package shm
+
+fun main()
+{
+    print("Day? ")
+    var day = readLine()!!.toInt()
+    print ("Mon? ")
+    var mon = readLine()!!.toInt()
+    print("Year?")
+    var year = readLine()!!.toInt()
+
+    displayDate(day,mon,year)
+}
+//1
+fun isLeapYear(year:Int) = (year % 4 == 0 && year / 100 != 0 && year % 400 == 0)
+//2
+fun isValidDate(day:Int, mon:Int, year:Int):Boolean
+{
+    if (day > 31 || day < 1 ||  mon > 12 || mon < 1)
+    return false
+
+    var days = when(mon){
+        1,3,5,7,8,10,12 -> 31
+        4,6,9,11 -> 30
+        else -> if(isLeapYear(year))29 else 28
+    }
+    return day <= days
+}
+//3
+fun getDayOfYear(day:Int, mon:Int, year:Int):Int
+{
+    if (!isValidDate(day,mon,year))
+        return -1
+    var dayOfYear = day
+
+    for (i in 1 until mon)
+        dayOfYear += when(i){
+            1,3,5,7,8,10 -> 31
+            4,6,9,11 -> 30
+            else -> if(isLeapYear(year)) 29 else 28
+        }
+    return dayOfYear
+}
+//4
+fun getDayOfWeek(day:Int, mon:Int, year:Int):Int
+{
+    var dayOfYear = getDayOfYear(day,mon,year)
+
+    if (dayOfYear < 0)
+        return -1
+
+    for (y in 1900 until year)
+        dayOfYear += when{
+            isLeapYear(y) -> 366
+            else -> 365
+        }
+    return dayOfYear % 7
+}
+//5
+fun displayDate(day:Int, mon:Int, year:Int)
+{
+    val date = getDayOfWeek(day,mon,year)
+
+    println("$day.$mon.$year")
+
+    when(date){
+        0 -> println("Sunday")
+        1 -> println("Monday")
+        2 -> println("Tuesday")
+        3 -> println("Wednesday")
+        4 -> println("Thursday")
+        5 -> println("Friyday")
+        6 -> println("Saturday")
+    }
+    when(getDayOfYear(day,mon,year)){
+        1 -> println("1st day of the year")
+        2 -> println("2nd day of the year")
+        3 -> println("3rd day of the year")
+        else -> println("${getDayOfYear(day,mon,year)}th day of the year")
+    }
+}
