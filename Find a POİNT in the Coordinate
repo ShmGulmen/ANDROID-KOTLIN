@@ -1,0 +1,38 @@
+package shm
+
+fun main()
+{
+    var p1 = Point()
+    var p2 = Point(5)
+    var p3 = Point(y = 4)
+    var p4 = Point (3,7)
+
+    println("p1:(${p1.x}, ${p1.y})")
+    println("p2:(${p2.x}, ${p2.y})")
+    println("p3:(${p3.x}, ${p3.y})")
+    println("p4:(${p4.x}, ${p4.y})")
+
+    print("******")
+
+    p4.offset(4,-5)
+    println("p4:(${p4.x}, ${p4.y})")
+
+    p3.offset(6)
+    println("p3:(${p3.x}, ${p3.y})")
+    
+    print("******")
+
+    var p5 = Point(50,50)
+    var p6 = Point(100,100)
+
+    println(p5.distance(p6))
+    println(p5.distance(100,100))
+}
+class Point(var x: Int = 0, var y:Int = 0) {
+    fun offset(dx : Int, dy : Int = dx){
+        x += dx
+        y += dy
+    }
+    fun distance(a:Int = 0, b:Int = 0) = Math.sqrt(Math.pow(x.toDouble() - a, 2.0) + Math.pow(y.toDouble() - b, 2.0))
+    fun distance(p: Point) = distance(p.x, p.y)
+}
