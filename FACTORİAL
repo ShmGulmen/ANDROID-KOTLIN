@@ -1,0 +1,25 @@
+package shm
+
+fun main()
+{
+    println(e(15))
+}
+fun e(n:Int):Double
+{
+    var result = 0.0
+
+    for (i in 0..n) {
+        result += 1.0 / factorial(i)
+    }
+    return result
+}
+fun factorial(n:Int):Int
+{
+    if (n < 0)
+        return -1
+    var result = 1
+
+    for (i in 2..n)
+        result *= i
+    return result
+}
