@@ -1,0 +1,22 @@
+package shm
+
+fun main()
+{
+    println("Enter a number")
+
+    var sum = 0
+    var count = 0
+
+    while (true) {
+        var a = readLine()!!.toInt()
+
+        if (a == 0)
+            break
+        sum += a
+        count++
+    }
+    var avg = sum.toDouble() / count
+
+    println("You have entered $count number")
+    println("Average is $avg")
+}
