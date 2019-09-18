@@ -1,0 +1,17 @@
+package shm
+
+import kotlin.random.Random
+
+fun main()
+{
+    println("Coin probably:${CoinProb(100_000)}")
+}
+fun CoinProb(n:Int):Double
+{
+    var count = 0
+
+    for (i in 1..n)
+        count += Random.nextInt(2)
+
+    return count.toDouble() / n
+}
