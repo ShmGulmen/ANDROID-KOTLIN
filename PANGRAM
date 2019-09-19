@@ -1,0 +1,16 @@
+package shm
+
+fun main()
+{
+    var s = "the quick brown fox jumps over the lazy dog"
+    println(isPangramEN(s))
+}
+fun isPangram(s:String, alphabet:String):Boolean
+{
+    for (i in alphabet){
+        if (!s.contains(i, ignoreCase = true))
+            return false
+    }
+    return true
+}
+fun isPangramEN(s:String) = isPangram(s, "abcdefghijklmoqprstuxwyz")
