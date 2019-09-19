@@ -1,0 +1,30 @@
+package shm
+
+fun main()
+{
+    print("Enter a first post")
+    var s = readLine()!!
+
+    print("Enter second post")
+    var s2 = readLine()!!
+
+    var count = getStringCount(s,s2,true)
+
+    println(count)
+}
+fun getStringCount(s1:String, s2:String, ignoreCase: Boolean = false):Int
+{
+    var count = 0
+    var index = 0
+
+    while (true){
+        index = s1.indexOf(s2, index, ignoreCase)
+        
+    if (index == -1)
+        break
+
+        ++count
+        ++index
+    }
+    return count
+}
