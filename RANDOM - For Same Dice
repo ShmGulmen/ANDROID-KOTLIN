@@ -1,0 +1,21 @@
+package shm
+
+import kotlin.random.Random
+
+fun main()
+{
+    println("Dice likely to come the same (${dice(100_000)})")
+}
+fun dice(n:Int):Double
+{
+    fun rollDice() = Random.nextInt(1,7)
+
+    var count = 0
+
+    for (i in 1..n) {
+        fun areSame() = rollDice() == rollDice()
+        if (areSame())
+        ++count
+    }
+    return count.toDouble() / n
+}
