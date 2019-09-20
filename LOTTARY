@@ -1,0 +1,34 @@
+package shm
+
+import kotlin.random.Random
+
+private fun kolon() : BooleanArray
+{
+    var falseTrueDizisi = BooleanArray(50)
+    var cıkanSayı:Int
+
+    for (i in 1..6){
+        while (true){
+            cıkanSayı = Random.nextInt(1,50) //Bir sayı cıktı
+
+        if(!falseTrueDizisi[cıkanSayı]) //Cıkan sayı false ise daha önce hiç çıkmamış demektir.Şimdi çıktı bırak
+            break
+        }
+        falseTrueDizisi[cıkanSayı] = true //Çıkan sayıyı true olarak işaretle ki aynı sayı çıkmasın
+    }
+    return falseTrueDizisi
+}
+
+fun kupon(): IntArray
+{
+    var falseTureDizisi = kolon()
+    var kolonDizisi = IntArray(6)
+
+    var index = 0
+
+    for (i in 1..49)
+        if (falseTureDizisi[i])
+            kolonDizisi[index++] = i
+
+    return kolonDizisi
+}
