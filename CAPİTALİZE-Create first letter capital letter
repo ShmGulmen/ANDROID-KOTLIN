@@ -1,0 +1,13 @@
+package shm
+
+fun capitalize(s:String):String
+{
+    if (s.isBlank())
+        return s
+
+    var str = ""
+
+    str = (s.substring(0,1).toUpperCase() + s.substring(1,s.length).toLowerCase())
+
+    return str
+}
