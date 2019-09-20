@@ -1,0 +1,19 @@
+package shm
+
+import org.shm.app.util.getDigitsCount
+import kotlin.math.absoluteValue
+
+fun getDigits(value:Int):IntArray
+{
+    var n = getDigitsCount(value)
+
+    var numbers = IntArray(n)
+
+    var temp = value.absoluteValue
+
+    while (temp != 0){
+        numbers[--n] = temp % 10
+        temp /= 10
+    }
+    return numbers
+}
