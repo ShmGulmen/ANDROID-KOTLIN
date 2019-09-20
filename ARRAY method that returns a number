@@ -17,4 +17,17 @@ fun getDigits(value:Int):IntArray
     return numbers
 }
 
+fun getDigitsCount(n: Int): Int
+{
+    if(n == 0)
+        return 1
 
+    var value = n
+    var count = 0
+
+    while (value != 0){
+        value /= 10
+        ++count
+    }
+    return count
+}
