@@ -1,33 +1,26 @@
 package shm
 
 import kotlin.math.absoluteValue
+import kotlin.math.log10
+import kotlin.math.pow
 
-fun getDigits(value:Int):IntArray
+fun digits(value:Int, n:Int):IntArray
 {
-    var n = getDigitsCount(value)
+    if (value == 0)
+        return IntArray(1)
 
-    var numbers = IntArray(n)
+    var number = value.absoluteValue
+    var count = (log10(number.toDouble()) / n).toInt() + 1
+    var numArray = IntArray(count)
+    var calc = 10.toDouble().pow(n).toInt()
 
-    var temp = value.absoluteValue
-
-    while (temp != 0){
-        numbers[--n] = temp % 10
-        temp /= 10
+    while (number != 0) {
+        numArray[--count] = number % calc
+        number /= calc
     }
-    return numbers
+
+    return numArray
 }
+fun digits(value:Int) = digits(value,1)
+fun digitsInthrees(value:Int) = digits(value,3)
 
-fun getDigitsCount(n: Int): Int
-{
-    if(n == 0)
-        return 1
-
-    var value = n
-    var count = 0
-
-    while (value != 0){
-        value /= 10
-        ++count
-    }
-    return count
-}
