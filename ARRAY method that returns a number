@@ -1,6 +1,5 @@
 package shm
 
-import org.shm.app.util.getDigitsCount
 import kotlin.math.absoluteValue
 
 fun getDigits(value:Int):IntArray
@@ -17,3 +16,5 @@ fun getDigits(value:Int):IntArray
     }
     return numbers
 }
+
+
