@@ -1,0 +1,44 @@
+package shm
+
+import java.lang.IllegalArgumentException
+
+fun main() {
+    var a = readDouble("first number?")
+    var b = readDouble("second number?")
+
+    try {
+        println(divide(a,b))
+    }
+    catch (ex:IllegalArgumentException){
+        print(ex.message)
+    }
+    println(" Run")
+}
+fun divide(a:Double, b:Double):Double
+{
+    if (b == 0.0) {
+        var msg = "infinite"
+        if (a == 0.0)
+            msg = "nan"
+
+        throw IllegalArgumentException(msg)
+    }
+
+    return a / b
+}
+
+fun readInt(msg:String):Int
+{
+    print(msg )
+    return readLine()!!.toInt()
+}
+fun readInt() = readInt("")
+fun readIntLine(msg:String) = readInt(msg + "\n")
+//****
+fun readDouble(msg:String):Double
+{
+    print(msg )
+    return readLine()!!.toDouble()
+}
+fun readDouble() = readDouble("")
+fun readDoubleLine(msg:String) = readDouble(msg + "\n")
