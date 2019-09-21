@@ -1,0 +1,18 @@
+package shm
+
+fun main()
+{
+    print()
+}
+
+var count = 0 //Global Variable
+
+fun print(){
+
+    when(count){
+        10 -> return
+    }
+    ++count
+    
+    println("dur")
+}
