@@ -1,0 +1,55 @@
+fun main()
+{
+    var src = IntArray(10) {it+1}
+    var dest = IntArray(src.count())
+
+    var count = copyIf(src, dest) {it % 2 == 0}
+    forEach(dest, count) {print(" $it ")}
+
+    count = copyIf(src, dest) {it.isPrime()}
+    forEach(dest, count) {print(" $it ")}
+
+
+}
+fun copyIf(src:IntArray, dest:IntArray, pred:(Int) -> Boolean) : Int
+{
+    var index = 0
+
+    for (i in src) {
+        if (pred(i))
+            dest[index++] = i
+    }
+    return index
+}
+fun forEach(src:IntArray, count:Int, f:(Int) -> Unit)
+{
+    for (i in 0 until count)
+        f(src [i])
+}
+fun forEach(src:IntArray, f: (Int) -> Unit) = forEach(src, src.count(), f)
+
+fun Int.isPrime():Boolean
+{
+    var n = this
+
+    if (n <= 1)
+        return false
+    if (n % 2 == 0)
+        return n == 2
+    if (n % 3 == 0)
+        return n == 3
+    if (n % 5 == 0)
+        return n == 5
+    if (n % 7 == 0)
+        return n == 7
+
+    var value = 11
+
+    if (value * value <= n)
+        if (n % value == 0)
+            return false
+    value += 2
+
+    return true
+}
+
